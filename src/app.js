@@ -87,8 +87,9 @@ app.get('/auth/github/callback',
   }
 )
 
-app.get('/login', (rep, res) => {
-  res.send({error: 'Auth error'})
+app.get('/auth/logout', ensureAuthenticated, (req, res) => {
+  req.logout()
+  res.redirect(config.auth.zorkoWebAppUrl)
 })
 
 app.listen(config.port)
