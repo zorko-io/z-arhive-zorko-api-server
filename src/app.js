@@ -49,7 +49,10 @@ app.use(partials())
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(methodOverride())
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:8080',
+  credentials: true
+}))
 app.use(session({
   secret: config.auth.sessionSecret,
   resave: false,
@@ -62,11 +65,24 @@ app.get('/auth/github',
   passport.authenticate('github', {scope: ['user:email']})
 )
 
+function ensureAuthenticated (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  } else {
+    res.status(403).send({error: {code: 'NOT_AUTHORIZED_SESSION'}})
+  }
+}
+
+app.get('/auth/account', ensureAuthenticated, (req, res) => {
+  res.send({user: req.user})
+})
+
 app.get('/auth/github/callback',
   passport.authenticate('github', {
     failureRedirect: config.auth.zorkoCallbackUrl
   }),
-  (rep, res) => {
+  (req, res) => {
+    console.log('Before Zorko redirect sessionID: ', req.sessionID)
     res.redirect(config.auth.zorkoCallbackUrl)
   }
 )
