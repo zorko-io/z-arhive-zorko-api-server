@@ -9,6 +9,6 @@ module.exports = {
       callbackUrl: process.env.GITHUB_CLIENT_CALLBACK_URL
     },
     sessionSecret: process.env.SESSION_SECRET,
-    zorkoCallbackUrl: process.env.ZORKO_CALLBACK_URL
+    zorkoWebAppUrl: process.env.ZORKO_WEB_APP_URL
   }
 }

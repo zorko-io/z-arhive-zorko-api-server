@@ -50,7 +50,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(methodOverride())
 app.use(cors({
-  origin: 'http://localhost:8080',
+  origin: config.auth.zorkoWebAppUrl,
   credentials: true
 }))
 app.use(session({
@@ -79,11 +79,11 @@ app.get('/auth/account', ensureAuthenticated, (req, res) => {
 
 app.get('/auth/github/callback',
   passport.authenticate('github', {
-    failureRedirect: config.auth.zorkoCallbackUrl
+    failureRedirect: config.auth.zorkoWebAppUrl
   }),
   (req, res) => {
     console.log('Before Zorko redirect sessionID: ', req.sessionID)
-    res.redirect(config.auth.zorkoCallbackUrl)
+    res.redirect(config.auth.zorkoWebAppUrl)
   }
 )
 
