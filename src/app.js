@@ -88,7 +88,7 @@ app.get('/auth/github/callback',
   }
 )
 
-app.get('/api/workspaces/:repositoryUri', async (request, response, next) => {
+app.get('/api/workspaces/:tenant/:repositoryNam', async (request, response, next) => {
   const result = await GetWorkspaceAction.execute(request.params)
   response.send(result)
 })
