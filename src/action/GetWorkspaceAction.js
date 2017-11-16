@@ -3,7 +3,7 @@ module.exports = {
     return {
       currentScope: 'uuid-1',
       tenant: context.tenant,
-      repositoryName: context
+      repositoryName: context.repositoryName
     }
   }
 }

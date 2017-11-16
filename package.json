@@ -9,7 +9,8 @@
     "start": "node src/app",
     "dev": "nodemon src/app.js --exec  \"npm run lint && node\"",
     "lint": "eslint src/**/*.js --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ava",
+    "watch:test": "ava --watch"
   },
   "dependencies": {
     "body-parser": "^1.17.2",
@@ -24,12 +25,13 @@
     "passport-github2": "^0.1.11"
   },
   "devDependencies": {
+    "ava": "^0.23.0",
+    "eslint": "^4.6.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
-    "eslint": "^4.6.0",
     "nodemon": "^1.11.0"
   }
 }
