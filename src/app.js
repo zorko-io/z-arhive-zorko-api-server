@@ -8,6 +8,7 @@ const partials = require('express-partials')
 const passport = require('passport')
 const GitHubStrategy = require('passport-github2').Strategy
 const config = require('./config')
+const GetWorkspaceAction = require('./action/GetWorkspaceAction')
 
 passport.serializeUser(function (user, done) {
   console.log('serialize user')
@@ -87,8 +88,9 @@ app.get('/auth/github/callback',
   }
 )
 
-app.get('/welcome', function (request, response, next) {
-  response.render('welcome')
+app.get('/api/workspaces/:repositoryUri', async (request, response, next) => {
+  const result = await GetWorkspaceAction.execute(request.params)
+  response.send(result)
 })
 
 app.get('/auth/logout', ensureAuthenticated, (req, res) => {
