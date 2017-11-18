@@ -11,9 +11,10 @@
     "lint": "eslint src/**/*.js --fix",
     "debug": "node --nolazy --inspect-brk=9229 src/app.js",
     "test": "ava",
-    "watch:test": "ava --watch"
+    "watch:test": "ava --watch --tap"
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.17.2",
     "cors": "^2.8.4",
     "dotenv": "^4.0.0",
@@ -22,8 +23,10 @@
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "morgan": "^1.8.2",
+    "octonode": "^0.9.1",
     "passport": "^0.4.0",
-    "passport-github2": "^0.1.11"
+    "passport-github2": "^0.1.11",
+    "ramda": "^0.25.0"
   },
   "devDependencies": {
     "ava": "^0.23.0",
