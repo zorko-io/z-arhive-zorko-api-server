@@ -3,20 +3,20 @@ import {readJSON} from '../../src/util/readJSON'
 import * as github from '../../src/github/utils'
 
 test.beforeEach(t => {
-  t.context.githubContentInput = readJSON(
-    './test/github/__data__/github-content.in.json'
+  t.context.topLevelInput = readJSON(
+    './test/github/__data__/github-content-top-level.in.json'
   )
-  t.context.githubContentOutput = readJSON(
-    './test/github/__data__/github-content.out.json'
+  t.context.topLevelOut = readJSON(
+    './test/github/__data__/github-content-top-level.out.json'
   )
 })
 
-test('Parse root content of repo', async t => {
+test('discover top level resources', async t => {
   const result = github.discoverWorkspaceTopLevelResources(
-    t.context.githubContentInput
+    t.context.topLevelInput
   )
 
   t.deepEqual(result,
-    t.context.githubContentOutput
+    t.context.topLevelOut
   )
 })
