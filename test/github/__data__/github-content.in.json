@@ -1,0 +1,61 @@
+[{
+  "name": "LICENSE",
+  "path": "LICENSE",
+  "sha": "1882d7d19eff9c59a075c0be74316ac9ea2e3fd9",
+  "size": 1065,
+  "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/LICENSE?ref=master",
+  "html_url": "https://github.com/zorko-io/zorko-demo-repository/blob/master/LICENSE",
+  "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/blobs/1882d7d19eff9c59a075c0be74316ac9ea2e3fd9",
+  "download_url": "https://raw.githubusercontent.com/zorko-io/zorko-demo-repository/master/LICENSE",
+  "type": "file",
+  "_links": {
+    "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/LICENSE?ref=master",
+    "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/blobs/1882d7d19eff9c59a075c0be74316ac9ea2e3fd9",
+    "html": "https://github.com/zorko-io/zorko-demo-repository/blob/master/LICENSE"
+  }
+}, {
+  "name": "connections",
+  "path": "connections",
+  "sha": "b25b653c8526e602f26da9342738f83f846b74e6",
+  "size": 0,
+  "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections?ref=master",
+  "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/connections",
+  "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/b25b653c8526e602f26da9342738f83f846b74e6",
+  "download_url": null,
+  "type": "dir",
+  "_links": {
+    "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections?ref=master",
+    "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/b25b653c8526e602f26da9342738f83f846b74e6",
+    "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/connections"
+  }
+}, {
+  "name": "looks",
+  "path": "looks",
+  "sha": "f533d2263bd986e5dc7af2dc4f88eee06078ced1",
+  "size": 0,
+  "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/looks?ref=master",
+  "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/looks",
+  "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/f533d2263bd986e5dc7af2dc4f88eee06078ced1",
+  "download_url": null,
+  "type": "dir",
+  "_links": {
+    "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/looks?ref=master",
+    "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/f533d2263bd986e5dc7af2dc4f88eee06078ced1",
+    "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/looks"
+  }
+}, {
+  "name": "models",
+  "path": "models",
+  "sha": "564f10c0c5b03f3cd075b43a3ccb32e9337b2180",
+  "size": 0,
+  "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models?ref=master",
+  "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models",
+  "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/564f10c0c5b03f3cd075b43a3ccb32e9337b2180",
+  "download_url": null,
+  "type": "dir",
+  "_links": {
+    "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models?ref=master",
+    "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/564f10c0c5b03f3cd075b43a3ccb32e9337b2180",
+    "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models"
+  }
+}]
