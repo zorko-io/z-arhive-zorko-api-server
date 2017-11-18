@@ -1,29 +1,45 @@
 const R = require('ramda')
 
 const isDir = R.propEq('type', 'dir')
+const isFile = R.propEq('type', 'file')
 
-const areConnectionsAvailable = R.propEq('name', 'connections')
-const areLooksAvailable = R.propEq('name', 'looks')
-const areModelsAvaulable = R.propEq('name', 'models')
-const isConnectionsDir = R.allPass([isDir, areConnectionsAvailable])
-const isLooksDir = R.allPass([isDir, areLooksAvailable])
-const isModelsDir = R.allPass([isDir, areModelsAvaulable])
+const mapToNameUrl = R.map((content) => ({
+  [content.name]: content.url
+}))
 
-const filterConnections = R.filter(isConnectionsDir)
-const filterLooks = R.filter(isLooksDir)
-const filterModels = R.filter(isModelsDir)
+const isConnectonsContainerName = R.propEq('name', 'connections')
+const isLooksContainerName = R.propEq('name', 'looks')
+const isModelsContainerName = R.propEq('name', 'models')
 
-const urlPropFromHead = R.compose(R.prop('url'), R.head)
+const isTopLevelContainerName = R.anyPass([
+  isConnectonsContainerName,
+  isLooksContainerName,
+  isModelsContainerName
+])
 
-const connectionsToUrl = R.compose(urlPropFromHead, filterConnections)
-const looksToUrl = R.compose(urlPropFromHead, filterLooks)
-const modelsToUrl = R.compose(urlPropFromHead, filterModels)
+const isTopLevelContainer = R.allPass([
+  isDir,
+  isTopLevelContainerName
+])
 
-const discoverWorkspaceTopLevelResources = (contents) => ({
-  connections: connectionsToUrl(contents),
-  looks: looksToUrl(contents),
-  models: modelsToUrl(contents)
-})
+const isLookName = R.compose(
+  R.match(/.*\.look\.json$/),
+  R.prop('name')
+)
+
+const isLookFile = R.allPass([isFile, isLookName])
+
+const discoverWorkspaceTopLevelResources = R.compose(
+  mapToNameUrl,
+  R.filter(isTopLevelContainer)
+)
+
+const discoverLooks = R.compose(
+  mapToNameUrl,
+  R.filter(isLookFile)
+)
+
 module.exports = {
-  discoverWorkspaceTopLevelResources
+  discoverWorkspaceTopLevelResources,
+  discoverLooks
 }

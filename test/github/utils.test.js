@@ -9,6 +9,12 @@ test.beforeEach(t => {
   t.context.topLevelOut = readJSON(
     './test/github/__data__/github-content-top-level.out.json'
   )
+  t.context.looksInput = readJSON(
+    './test/github/__data__/github-content-looks.in.json'
+  )
+  t.context.looksOut = readJSON(
+    './test/github/__data__/github-content-looks.out.json'
+  )
 })
 
 test('discover top level resources', async t => {
@@ -18,5 +24,15 @@ test('discover top level resources', async t => {
 
   t.deepEqual(result,
     t.context.topLevelOut
+  )
+})
+
+test('discover all looks', async t => {
+  const result = github.discoverLooks(
+    t.context.looksInput
+  )
+
+  t.deepEqual(result,
+    t.context.looksOut
   )
 })

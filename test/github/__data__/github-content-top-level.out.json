@@ -1,5 +1,5 @@
-{
-  "looks": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/looks?ref=master",
-  "connections": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections?ref=master",
-  "models": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models?ref=master"
-}
+[
+  {"connections": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections?ref=master"},
+  {"looks": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/looks?ref=master"},
+  {"models": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models?ref=master"}
+]
