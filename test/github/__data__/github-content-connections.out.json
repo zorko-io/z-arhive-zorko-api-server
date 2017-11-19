@@ -1,0 +1,4 @@
+[
+  {"car.connection.json": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections/car.connection.json?ref=master"},
+  {"population.connection.json": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/connections/population.connection.json?ref=master"}
+]

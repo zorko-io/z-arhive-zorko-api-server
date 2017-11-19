@@ -27,19 +27,30 @@ const isLookName = R.compose(
   R.prop('name')
 )
 
-const isLookFile = R.allPass([isFile, isLookName])
+const isConnectionName = R.compose(
+  R.match(/.*\.connection\.json$/),
+  R.prop('name')
+)
+
+// const isModelDocName = R.compose(
+//   R.match(/.*\.doc\.json$/),
+//   R.prop('name')
+// )
+
+const isWorkspaceResourceName = R.anyPass([isLookName, isConnectionName])
+const isWorkspaceResource = R.allPass([isFile, isWorkspaceResourceName])
 
 const discoverWorkspaceTopLevelResources = R.compose(
   mapToNameUrl,
   R.filter(isTopLevelContainer)
 )
 
-const discoverLooks = R.compose(
+const discoverWorkspaceResources = R.compose(
   mapToNameUrl,
-  R.filter(isLookFile)
+  R.filter(isWorkspaceResource)
 )
 
 module.exports = {
   discoverWorkspaceTopLevelResources,
-  discoverLooks
+  discoverWorkspaceResources
 }
