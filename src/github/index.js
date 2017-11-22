@@ -1,10 +1,8 @@
 const axios = require('axios')
 const config = require('../config')
 const explore = require('./explore').explore
-const resourceTypesGlobs = require('./resouceTypesGlobs')
-const {matchGlob} = require('./matchGlob')
-const {mergeGlobs} = require('./mergeGlobs')
 const R = require('ramda')
+const isWorkspaceContent = require('./isWorkspaceContent').isWorkspaceContent
 
 function trace (...args) {
   debugger
@@ -20,12 +18,6 @@ const requestConfig = {
 }
 const request = axios.create(requestConfig)
 
-const allGlobs = Object.values(resourceTypesGlobs)
-const pahtGlobPattern = mergeGlobs(allGlobs)
-const matchWorkspacePath = R.partial(matchGlob, [pahtGlobPattern])
-
-const isWorkspaceContent = R.compose(matchWorkspacePath, R.prop('path'))
-
 const exploreContent = R.composeP(
   R.filter(isWorkspaceContent),
   R.partial(explore, [request])
@@ -38,5 +30,5 @@ const exploreContent = R.composeP(
 // const curryTestAsync = R.partial(testAsync, ['123'])
 
 // const result = curryTestAsync()
-const result = exploreContent('/')
+const result = exploreContent('/models/cars')
 result.then(trace, error)
