@@ -1,0 +1,50 @@
+[
+  {
+    "name": "cars",
+    "path": "models/cars",
+    "sha": "70ea53d0474712d619f99581d13e56fec0b20ba3",
+    "size": 0,
+    "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/cars?ref=master",
+    "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/cars",
+    "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/70ea53d0474712d619f99581d13e56fec0b20ba3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/cars?ref=master",
+      "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/70ea53d0474712d619f99581d13e56fec0b20ba3",
+      "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/cars"
+    }
+  },
+  {
+    "name": "population",
+    "path": "models/population",
+    "sha": "31c059cc28dc1d7ddb90450d992edb45f7e6c118",
+    "size": 0,
+    "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/population?ref=master",
+    "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/population",
+    "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/31c059cc28dc1d7ddb90450d992edb45f7e6c118",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/population?ref=master",
+      "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/31c059cc28dc1d7ddb90450d992edb45f7e6c118",
+      "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/population"
+    }
+  },
+  {
+    "name": "weather",
+    "path": "models/weather",
+    "sha": "e9062892dea964dd4f128d7b6b4b2f0e499a3042",
+    "size": 0,
+    "url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/weather?ref=master",
+    "html_url": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/weather",
+    "git_url": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/e9062892dea964dd4f128d7b6b4b2f0e499a3042",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/weather?ref=master",
+      "git": "https://api.github.com/repos/zorko-io/zorko-demo-repository/git/trees/e9062892dea964dd4f128d7b6b4b2f0e499a3042",
+      "html": "https://github.com/zorko-io/zorko-demo-repository/tree/master/models/weather"
+    }
+  }
+]

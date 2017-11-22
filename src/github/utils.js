@@ -1,6 +1,6 @@
 const R = require('ramda')
 
-const isDir = R.propEq('type', 'dir')
+const isFolder = R.propEq('type', 'dir')
 const isFile = R.propEq('type', 'file')
 
 const mapToNameUrl = R.map((content) => ({
@@ -18,7 +18,7 @@ const isTopLevelContainerName = R.anyPass([
 ])
 
 const isTopLevelContainer = R.allPass([
-  isDir,
+  isFolder,
   isTopLevelContainerName
 ])
 
@@ -32,13 +32,30 @@ const isConnectionName = R.compose(
   R.prop('name')
 )
 
+const isModelPath = R.compose(
+  R.match(/^\/models(\/)?/),
+  R.prop('path')
+)
+const isModelFolder = R.allPass([isFolder, isModelPath])
+
 // const isModelDocName = R.compose(
 //   R.match(/.*\.doc\.json$/),
 //   R.prop('name')
 // )
 
-const isWorkspaceResourceName = R.anyPass([isLookName, isConnectionName])
-const isWorkspaceResource = R.allPass([isFile, isWorkspaceResourceName])
+const isWorkspaceResourceName = R.anyPass([
+  isLookName,
+  isConnectionName
+])
+const isWorkspaceFileResource = R.allPass([
+  isFile,
+  isWorkspaceResourceName
+])
+
+const isAnyWorkspaceResource = R.anyPass([
+  isWorkspaceFileResource,
+  isModelFolder
+])
 
 const discoverWorkspaceTopLevelResources = R.compose(
   mapToNameUrl,
@@ -47,7 +64,7 @@ const discoverWorkspaceTopLevelResources = R.compose(
 
 const discoverWorkspaceResources = R.compose(
   mapToNameUrl,
-  R.filter(isWorkspaceResource)
+  R.filter(isAnyWorkspaceResource)
 )
 
 module.exports = {

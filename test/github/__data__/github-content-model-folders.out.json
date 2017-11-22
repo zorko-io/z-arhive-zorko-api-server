@@ -1,0 +1,5 @@
+[
+  {"cars": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/cars?ref=master"},
+  {"population": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/population?ref=master"},
+  {"weather": "https://api.github.com/repos/zorko-io/zorko-demo-repository/contents/models/weather?ref=master"}
+]

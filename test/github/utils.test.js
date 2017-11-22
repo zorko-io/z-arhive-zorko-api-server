@@ -15,6 +15,12 @@ test.beforeEach(t => {
   t.context.looksOut = readJSON(
     './test/github/__data__/github-content-looks.out.json'
   )
+  t.context.connectionsInput = readJSON(
+    './test/github/__data__/github-content-connections.in.json'
+  )
+  t.context.connectionsOut = readJSON(
+    './test/github/__data__/github-content-connections.out.json'
+  )
 })
 
 test('discover top level resources', async t => {
@@ -28,7 +34,7 @@ test('discover top level resources', async t => {
 })
 
 test('discover all looks', async t => {
-  const result = github.discoverLooks(
+  const result = github.discoverWorkspaceResources(
     t.context.looksInput
   )
 
@@ -36,3 +42,14 @@ test('discover all looks', async t => {
     t.context.looksOut
   )
 })
+
+test('discover all connections', async t => {
+  const result = github.discoverWorkspaceResources(
+    t.context.connectionsInput
+  )
+
+  t.deepEqual(result,
+    t.context.connectionsOut
+  )
+})
+

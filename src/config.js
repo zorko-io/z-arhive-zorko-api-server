@@ -10,5 +10,10 @@ module.exports = {
     },
     sessionSecret: process.env.SESSION_SECRET,
     zorkoWebAppUrl: process.env.ZORKO_WEB_APP_URL
+  },
+  repository: {
+    github: {
+      contenApiUrl: 'https://api.github.com/repos/zorko-io/zorko-demo-repository/contents'
+    }
   }
 }

@@ -7,7 +7,9 @@ module.exports = (
   const router = express.Router()
 
   const getWorspaceByRepoUri = async (request, response, next) => {
-    const result = await GetWorkspaceAction.execute(request.params)
+    const result = await GetWorkspaceAction.execute({
+      params: request.params
+    })
     response.send(result)
   }
 
