@@ -1,21 +1,18 @@
-const minimatch = require('minimatch')
+const R = require('ramda')
+const {matchGlob} = require('./matchGlob')
 
-const satisfy = (globPattern) => {
-  return (path) => {
-    return minimatch(path, globPattern)
-  }
-}
+const match = R.curry(matchGlob)
 
 module.exports = {
-  isLooksFolder: satisfy('looks'),
-  isLook: satisfy('looks/*.look.json'),
+  isLooksFolder: match('looks'),
+  isLook: match('looks/*.look.json'),
 
-  isConnectionsFolder: satisfy('connections'),
-  isConnection: satisfy('connections/*.connection.json'),
+  isConnectionsFolder: match('connections'),
+  isConnection: match('connections/*.connection.json'),
 
-  isModelsFolder: satisfy('models'),
-  isModelFolder: satisfy('models/*/'),
-  isModelDoc: satisfy('models/*/*.doc.md'),
-  isModelCore: satisfy('models/*/*.model.json'),
-  isModelView: satisfy('models/*/*.view.json')
+  isModelsFolder: match('models'),
+  isModelFolder: match('models/*/'),
+  isModelDoc: match('models/*/*.doc.md'),
+  isModelCore: match('models/*/*.model.json'),
+  isModelView: match('models/*/*.view.json')
 }
