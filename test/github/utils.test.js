@@ -52,4 +52,3 @@ test('discover all connections', async t => {
     t.context.connectionsOut
   )
 })
-
