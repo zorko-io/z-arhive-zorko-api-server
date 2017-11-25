@@ -13,7 +13,7 @@ module.exports = {
   },
   repository: {
     github: {
-      contenApiUrl: 'https://api.github.com/repos/zorko-io/zorko-demo-repository/contents'
+      contenApiUrl: 'https://api.github.com/repos/:tenant/:repoName/contents'
     }
   }
 }
