@@ -7,27 +7,28 @@ const isConnectionFolderContent = R.compose(
 )
 
 async function fetchWorkspace (explore, downloadByUrl) {
-  const result = {
-    connections: [],
-    looks: [],
-    models: []
-  }
+  let result
   const root = await explore('/')
 
   const connectionFolder = R.find(isConnectionFolderContent, root)
 
   if (connectionFolder) {
+    result = {
+      connections: [],
+      looks: [],
+      models: []
+    }
+
     const connectionFolderPath = R.prop('path', connectionFolder)
     const connectionContents = await explore(connectionFolderPath)
     if (!R.isEmpty(connectionContents)) {
       const connectionDowloads = await Promise.all(
         R.map(downloadByUrl, connectionContents)
       )
-
-      console.log(JSON.stringify(connectionDowloads, null, 2))
       result.connections = connectionDowloads
     }
   }
+
   return result
 }
 
