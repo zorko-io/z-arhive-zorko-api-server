@@ -1,5 +1,5 @@
 const R = require('ramda')
-const {matchGlob} = require('./matchGlob')
+const {matchGlob} = require('./glob/matchGlob')
 
 const match = R.curry(matchGlob)
 

@@ -2,7 +2,7 @@ const R = require('ramda')
 const axios = require('axios')
 const config = require('../config')
 const isWorkspaceContent = require('./isWorkspaceContent').isWorkspaceContent
-const dataOnlyResponse = require('./dataOnlyRespose').dataOnlyResponse
+const dataOnlyResponse = require('./util/dataOnlyRespose').dataOnlyResponse
 const exploreByPath = require('./exploreByPath').exploreByPath
 const fetchWorkspace = require('./fetchWorkspace').fetchWorkspace
 
