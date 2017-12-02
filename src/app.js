@@ -6,8 +6,8 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const partials = require('express-partials')
 const config = require('./config')
-const {ensureAuthenticated} = require(
-  './ensureAuthenticated'
+const ensureAuthenticated = require(
+  './util/ensureAuthenticated'
 ).ensureAuthenticated
 
 const prepareGithubPassport = require('./passport/prepareGithubPassport')
