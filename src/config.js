@@ -15,5 +15,8 @@ module.exports = {
     github: {
       contenApiUrl: 'https://api.github.com/repos/:tenant/:repoName/contents'
     }
+  },
+  db: {
+    url: 'mongodb://localhost:27017/myproject'
   }
 }

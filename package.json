@@ -24,6 +24,7 @@
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
     "minimatch": "^3.0.4",
+    "mongodb": "^2.2.33",
     "morgan": "^1.8.2",
     "octonode": "^0.9.1",
     "passport": "^0.4.0",
