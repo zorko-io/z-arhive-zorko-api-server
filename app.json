@@ -1,6 +1,10 @@
 {
   "environments": {
     "test": {
+      "env": {
+        "NPM_CONFIG_PRODUCTION": false,
+        "NODE_ENV": "test"
+      },
       "scripts": {
         "test": "npm test"
       }
