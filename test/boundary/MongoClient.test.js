@@ -1,8 +1,7 @@
 import test from 'ava'
 import { MongoClient } from 'mongodb'
-import config from '../../src/config'
 
-const url = config.db.url
+const url = 'mongodb://localhost:27017/boundary_test_to_drop'
 const connectByUrl = async (url) => MongoClient.connect(url)
 
 const insertDocument = async (db) => {
@@ -22,38 +21,29 @@ const findAll = async (db) => {
   return collection.find({}).toArray()
 }
 
-test.serial('should connect to db', async t => {
-  const Db = await connectByUrl(url)
+const dropDatabase = async (db) => {
+  return db.dropDatabase()
+}
 
-  Db.close()
-
-  t.truthy(Db)
+test.beforeEach(async t => {
+  t.context.Db = await connectByUrl(url)
 })
 
-test.serial('should fail connection', async t => {
-  const url = 'blblblbllblblb'
-  t.plan(1)
-
-  try {
-    await connectByUrl(url)
-  } catch (err) {
-    t.truthy(err)
-  }
+test.afterEach(async t => {
+  t.context.Db.close()
 })
 
 test.serial('inserting document', async t => {
-  const Db = await connectByUrl(url)
+  const Db = t.context.Db
 
   const {result, ops} = await insertDocument(Db)
-
-  Db.close()
 
   t.is(result.n, 3)
   t.is(ops.length, 3)
 })
 
 test.serial('update document', async t => {
-  const Db = await connectByUrl(url)
+  const Db = t.context.Db
 
   const {result} = await updateDocument(Db)
 
@@ -61,7 +51,7 @@ test.serial('update document', async t => {
 })
 
 test.serial('delete documents', async t => {
-  const Db = await connectByUrl(url)
+  const Db = t.context.Db
 
   const {result} = await deleteDocument(Db)
 
@@ -69,7 +59,7 @@ test.serial('delete documents', async t => {
 })
 
 test.serial('find all documents', async t => {
-  const Db = await connectByUrl(url)
+  const Db = t.context.Db
 
   const docs = await findAll(Db)
 
@@ -77,7 +67,7 @@ test.serial('find all documents', async t => {
 })
 
 test.serial('delete all documents', async t => {
-  const Db = await connectByUrl(url)
+  const Db = t.context.Db
 
   let docs = await findAll(Db)
 
@@ -90,3 +80,8 @@ test.serial('delete all documents', async t => {
   t.deepEqual(docs, [])
 })
 
+test.serial('clean up database',async t => {
+  const Db = t.context.Db
+  await dropDatabase(Db)
+  t.pass()
+})
