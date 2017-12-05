@@ -6,7 +6,7 @@
         "NODE_ENV": "test"
       },
       "scripts": {
-        "test": "npm test"
+        "test": "npm run ci:test"
       }
     }
   }

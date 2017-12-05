@@ -11,6 +11,7 @@
     "lint": "eslint src/**/*.js --fix",
     "debug": "node --nolazy --inspect-brk=9229 src/app.js",
     "test": "ava",
+    "ci:test": "ava --tap",
     "watch:test": "ava --watch"
   },
   "dependencies": {
