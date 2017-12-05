@@ -1,7 +1,8 @@
 import test from 'ava'
-import { MongoClient } from 'mongodb'
+import {MongoClient} from 'mongodb'
+import {dbUrlByName} from '../../src/util/dbUrl'
 
-const url = 'mongodb://localhost:27017/boundary_test_to_drop'
+const url = dbUrlByName('boundary_test_to_drop')
 const connectByUrl = async (url) => MongoClient.connect(url)
 
 const insertDocument = async (db) => {
@@ -80,7 +81,7 @@ test.serial('delete all documents', async t => {
   t.deepEqual(docs, [])
 })
 
-test.serial('clean up database',async t => {
+test.serial('clean up database', async t => {
   const Db = t.context.Db
   await dropDatabase(Db)
   t.pass()

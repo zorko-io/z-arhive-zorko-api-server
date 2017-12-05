@@ -17,6 +17,8 @@ module.exports = {
     }
   },
   db: {
-    url: 'mongodb://localhost:27017/myproject'
+    rootUrl: process.env.MONGO_ROOT_URL,
+    name: process.env.MONGO_DB_NAME,
+    urlParams: process.env.MONGO_URL_PARAMS
   }
 }
